@@ -2,7 +2,7 @@
 #----------------------------------------------------------------------------
 
 module Sinatra::Adapt::Routes::Functional
-	def self.registered(app)
+  def self.registered(app)
 
     #---
 
@@ -17,7 +17,7 @@ module Sinatra::Adapt::Routes::Functional
 
     #---
 
-		app.get '/cloudstack' do
+    app.get '/cloudstack' do
       env['warden'].authenticate!
 
       communicator = ADAPT::Communicator.instance
@@ -26,24 +26,24 @@ module Sinatra::Adapt::Routes::Functional
       @url = communicator.get_cs_url
       @api_key = communicator.get_cs_api_key
       @secret_key = communicator.get_cs_secret_key
-			@vms = manager.get_all_vms
+      @vms = manager.get_all_vms
 
       @cloudstack = 'active'
       @title = 'CloudStack'
 
-			erb :cloudstack
-		end
+      erb :cloudstack
+    end
 
-		#---
+    #---
 
-		app.get '/simulation' do
+    app.get '/simulation' do
       env['warden'].authenticate!
       
       @simulation = 'active'
       @title = 'Simulation'
 
-			erb :'simulation'
-		end
+      erb :'simulation'
+    end
 
     #---
 
@@ -81,5 +81,5 @@ module Sinatra::Adapt::Routes::Functional
 
     #---
     
-	end
+  end
 end

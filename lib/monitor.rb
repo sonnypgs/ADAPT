@@ -8,33 +8,33 @@ module ADAPT
   # Requirements
   #----------------------------------------------------------------------------
 
-	require 'benchmark'
-	require 'mysql2'
+  require 'benchmark'
+  require 'mysql2'
   require 'singleton'
-	require_relative 'communicator'
+  require_relative 'communicator'
   require_relative 'logger'
   require_relative 'manager'
   require_relative 'memorizer'
   require_relative 'scaler'
-	require_relative 'utilities'
+  require_relative 'utilities'
 
   #----------------------------------------------------------------------------
   # Class
   #----------------------------------------------------------------------------
 
-	class Monitor
+  class Monitor
 
     #--------------------------------------------------------------------------
     # Includes
     #--------------------------------------------------------------------------
 
-		include Singleton
+    include Singleton
     
     #--------------------------------------------------------------------------
     # Constants
     #--------------------------------------------------------------------------
 
-		CONFIG = $utils.get_config
+    CONFIG = $utils.get_config
 
     #--------------------------------------------------------------------------
     # Instance variables
@@ -347,7 +347,7 @@ module ADAPT
 
     #---
 
-	end
+  end
 end
 
 #------------------------------------------------------------------------------

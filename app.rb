@@ -24,45 +24,45 @@ ADAPT::Monitor.instance.monitor_cluster
 class Adapt < Sinatra::Base
   set :sessions, true
   set :session_secret, "1z903h910hdß91hdßh1ß"
-	set :environment, :production
-	set :views, settings.root + '/views'
-	set :erb, :layout => :'layouts/default'
+  set :environment, :production
+  set :views, settings.root + '/views'
+  set :erb, :layout => :'layouts/default'
 
-	#----------------------------------------------------------------------------
+  #----------------------------------------------------------------------------
 
-	register Sinatra::AssetPack
+  register Sinatra::AssetPack
 
-	assets do
-		serve '/js',		  from: 'assets/scripts'
-		serve '/css',		  from: 'assets/stylesheets'
-		serve '/images',	from: 'assets/images'
-		serve '/comp', 		from: 'assets/components'
+  assets do
+    serve '/js',      from: 'assets/scripts'
+    serve '/css',     from: 'assets/stylesheets'
+    serve '/images',  from: 'assets/images'
+    serve '/comp',    from: 'assets/components'
 
-		js :app, [
-			'/js/all.js',
+    js :app, [
+      '/js/all.js',
       '/js/shared.js',
       '/js/cloudstack.js',
       '/js/configuration.js',
       '/js/logging.js',
       '/js/monitor.js',
       '/js/simulation.js',
-		]
+    ]
 
-		css :default, [
-			'/css/default.css'
-		]
+    css :default, [
+      '/css/default.css'
+    ]
 
-		css :alternative, [
-			'/css/alternative.css'
-		]
+    css :alternative, [
+      '/css/alternative.css'
+    ]
 
-		js_compression	:jsmin
-		css_compression :simple
-	end
+    js_compression  :jsmin
+    css_compression :simple
+  end
 
-	#----------------------------------------------------------------------------
+  #----------------------------------------------------------------------------
 
-	register Sinatra::Flash
+  register Sinatra::Flash
 
   #----------------------------------------------------------------------------
 
@@ -102,11 +102,11 @@ class Adapt < Sinatra::Base
     end
   end
 
-	#----------------------------------------------------------------------------
+  #----------------------------------------------------------------------------
 
-	register Sinatra::Adapt::Routes::Standard
-	register Sinatra::Adapt::Routes::Functional
-	register Sinatra::Adapt::Routes::Ajax
-	register Sinatra::Adapt::Routes::Authentication
+  register Sinatra::Adapt::Routes::Standard
+  register Sinatra::Adapt::Routes::Functional
+  register Sinatra::Adapt::Routes::Ajax
+  register Sinatra::Adapt::Routes::Authentication
 
 end

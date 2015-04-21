@@ -9,28 +9,28 @@ module ADAPT
   #----------------------------------------------------------------------------
 
   require 'fileutils'
-	require 'yaml'
+  require 'yaml'
 
   #----------------------------------------------------------------------------
   # Module
   #----------------------------------------------------------------------------
 
-	module Utilities
-		module_function
+  module Utilities
+    module_function
 
     #--------------------------------------------------------------------------
     # File & Directory methods
     #--------------------------------------------------------------------------
 
-		def get_directory(prefix='')
-			File.expand_path(prefix, File.dirname(__FILE__))
-		end
+    def get_directory(prefix='')
+      File.expand_path(prefix, File.dirname(__FILE__))
+    end
 
     #---
 
-		def empty_file(file)
-			File.open(file, 'w') {}
-		end
+    def empty_file(file)
+      File.open(file, 'w') {}
+    end
 
     #---
 
@@ -66,13 +66,13 @@ module ADAPT
 
     #---
 
-		def get_file_line_count(file)
-			count = 0
-			
+    def get_file_line_count(file)
+      count = 0
+      
       File.open(file) do |f| 
-				count = f.read.count("\n")
-			end
-		end
+        count = f.read.count("\n")
+      end
+    end
 
     #---
 
@@ -92,11 +92,11 @@ module ADAPT
 
     #---
 
-		def append_to_file(file, text, method='a')
-			File.open(file, 'a') do |f|
-				f.puts text
-			end
-		end
+    def append_to_file(file, text, method='a')
+      File.open(file, 'a') do |f|
+        f.puts text
+      end
+    end
 
     #---
 
@@ -131,7 +131,7 @@ module ADAPT
 
     #---
     
-	end
+  end
 end
 
 #------------------------------------------------------------------------------

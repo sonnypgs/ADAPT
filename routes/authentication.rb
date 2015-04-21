@@ -2,8 +2,8 @@
 #----------------------------------------------------------------------------
 
 module Sinatra::Adapt::Routes::Authentication
-	def self.registered(app)
-	 
+  def self.registered(app)
+   
     #---
 
     app.get '/login' do
@@ -46,5 +46,5 @@ module Sinatra::Adapt::Routes::Authentication
 
     #---
     
-	end
+  end
 end

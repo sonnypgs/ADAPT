@@ -1,6 +1,6 @@
 module Sinatra
-	module Adapt
-		module Routes
-		end
-	end
+  module Adapt
+    module Routes
+    end
+  end
 end
