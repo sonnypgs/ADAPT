@@ -3,9 +3,9 @@
 
 adapt:
     authentication:
-        username:           <username>
-        password:           <password>
-        session_secret:     <session_secret>
+        username:    <username>
+        password:    <password>
+    session_secret:  <session_secret>
 
 #------------------------------------------------------------------------------
 
