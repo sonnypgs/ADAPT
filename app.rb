@@ -23,7 +23,7 @@ ADAPT::Monitor.instance.monitor_cluster
 
 class Adapt < Sinatra::Base
   set :sessions, true
-  set :session_secret, "1z903h910hdß91hdßh1ß"
+  set :session_secret, ADAPT::Utilities.get_config['adapt']['session_secret']
   set :environment, :production
   set :views, settings.root + '/views'
   set :erb, :layout => :'layouts/default'
