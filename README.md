@@ -1,7 +1,7 @@
 ## ɅDAPT
 ADAPT is a platform for automatically monitoring and scaling your cloud-based database cluster.
 
-#### Supported Technologies
+##### Supported Technologies
 - Apache CloudStack (4.3+)
 - MySQL Cluster (7.3.7+)
 
