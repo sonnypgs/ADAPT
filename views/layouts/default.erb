@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>ADAPT | <%= @title %></title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/comp/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/comp/ladda-bootstrap/ladda.css">
+    <link rel="stylesheet" href="/comp/rickshaw/rickshaw.css">
+    <%= css :default %>
+  </head>
+  
+  <body class="default-body"><%= @current_user %>
+    <div class="wrapper container">
+      <%= erb :'partials/navbar', :layout => false %>
+      
+      <div class="container-fluid">
+        <div class="row">
+          <%= erb :'partials/sidebar', :layout => false %>
+
+          <div class="col-sm-9 col-md-10 main">
+            <div class="main-inner">
+              <%= yield %>
+            </div>
+            <!-- Ajax Loader -->
+            <div id="ajax-loader-container" class="ajax-loader-container">
+              <div id="ajax-loader" class="ajax-loader"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScripts -->
+    <script src="/comp/jquery/dist/jquery.js"></script>
+    <script src="/comp/jquery-ui/jquery-ui.js"></script>
+    <script src="/comp/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/comp/holderjs/holder.js"></script>
+    <script src="/comp/ladda-bootstrap/spin.js"></script>
+    <script src="/comp/ladda-bootstrap/ladda.js"></script>
+    <script src="/comp/d3/d3.js"></script>
+    <script src="/comp/rickshaw/rickshaw.js"></script>
+    <script src="/comp/jquery-sortable/source/js/jquery-sortable.js"></script>
+    <%= js :app %>
+  </body>
+</html>

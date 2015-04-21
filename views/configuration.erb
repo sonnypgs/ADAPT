@@ -1,0 +1,110 @@
+<div id="page-configuration" class="page-configuration">
+  <div class="row">
+    <h4>Konfiguration</h4>
+    <hr>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h5>Vorhandene VMs</h5>
+      <hr>
+
+      <ol class="simple_with_animation vertical" data-max-nodes="200">
+        <% @vms.each do |vm| %>
+          <li data-id="<%= vm['id'] %>" data-displayname="<%= vm['displayname'] %>" data-name="<%= vm['name'] %>" data-ip="<%= vm['ip'] %>">
+            <%= vm['displayname'] %> (<%= vm['name'] %>)
+          </li>
+        <% end %>
+      </ol>
+    </div>
+
+    <div class="col-md-6">
+      <h5>MySQL-Cluster</h5>
+      <hr>
+      
+      <div class="cluster-management-nodes">
+        Management-Node
+        <ol id="cluster-management-node" class="simple_with_animation vertical" data-max-nodes="1">
+          <% unless @management_node.nil? %>
+            <li data-id="<%= @management_node['id'] %>" data-displayname="<%= @management_node['displayname'] %>" data-name="<%= @management_node['name'] %>" data-ip="<%= @management_node['ip'] %>">
+              <%= @management_node['displayname'] %> (<%= @management_node['name'] %>)
+            </li>
+          <% end %>
+        </ol>
+      </div>
+    
+      <div class="cluster-sql-nodes">
+        SQL-Nodes
+        <ol id="cluster-sql-nodes" class="simple_with_animation vertical" data-max-nodes="99">
+          <% @sql_nodes.each do |node| %>
+            <li data-id="<%= node['id'] %>" data-displayname="<%= node['displayname'] %>" data-name="<%= node['name'] %>" data-ip="<%= node['ip'] %>">
+              <%= node['displayname'] %> (<%= node['name'] %>)
+            </li>
+          <% end %>
+        </ol>
+      </div>
+      
+      <% 
+      # Filter node groups
+      nodegroups = []
+      inactive_group = 65536
+
+      @data_nodes.each do |node|
+        nodegroups.push(node['nodegroup'].to_i)
+      end
+      
+      if nodegroups.size > 0
+        nodegroups = nodegroups.uniq
+        nodegroups.sort!.delete(inactive_group)
+      end
+      %>
+
+      <div class="cluster-data-nodes">
+        Data-Nodes
+        <div id="node-groups" class="node-groups">
+          <!-- Filled with node groups -->
+          <% nodegroups.each do |nodegroup| %>
+            <ol id="node-group-<%= nodegroup %>" data-node-group="<%= nodegroup %>" class="node-group simple_with_animation vertical" data-max-nodes="99">
+            <span>Node Group <%= nodegroup %></span> <a id="delete-node-group" class="delete-node-group">x</a>
+              <% @data_nodes.each do |node| %>
+                <% if node['nodegroup'].to_i == nodegroup %>
+                  <li data-id="<%= node['id'] %>" data-displayname="<%= node['displayname'] %>" data-name="<%= node['name'] %>" data-ip="<%= node['ip'] %>">
+                    <%= node['displayname'] %> (<%= node['name'] %>)
+                  </li>
+                <% end %>
+              <% end %>
+            </ol>
+          <% end %>
+        </div>
+
+        <ol id="inactive-data-nodes" class="simple_with_animation vertical" data-max-nodes="99">
+          Inaktive Nodes
+          <% @data_nodes.each do |node| %>
+            <% if node['nodegroup'].to_i == inactive_group %>
+              <li data-id="<%= node['id'] %>" data-displayname="<%= node['displayname'] %>" data-name="<%= node['name'] %>" data-ip="<%= node['ip'] %>">
+              <%= node['displayname'] %> (<%= node['name'] %>)
+              </li>
+            <% end %>
+          <% end %>
+        </ol>
+        <button id="add-node-group" class="btn btn-success btn-xs add-new-node-group">Node Group hinzufügen</button>
+      </div>
+    
+      <div class="cluster-load-balancer-node">
+        Load-Balancer-Node
+        <ol id="cluster-load-balancer-node" class="simple_with_animation vertical" data-max-nodes="1">
+          <% unless @load_balancer_node.nil? %>
+            <li data-id="<%= @load_balancer_node['id'] %>" data-displayname="<%= @load_balancer_node['displayname'] %>" data-name="<%= @load_balancer_node['name'] %>" data-ip="<%= @load_balancer_node['ip'] %>">
+              <%= @load_balancer_node['displayname'] %> (<%= @load_balancer_node['name'] %>)
+            </li>
+          <% end %>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <hr>
+    <button class="btn btn-primary" id="save-cluster-node-changes">Änderungen speichern</button>
+  </div>
+</div>

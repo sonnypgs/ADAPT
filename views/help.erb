@@ -1,0 +1,54 @@
+<div id="page-help" class="page-help">
+  
+  <!-- Description -->
+  
+  <div class="row">
+    <h5>Beschreibung</h5>
+    <hr>
+  </div>
+  
+  <div class="row">
+    <p>ADAPT ist eine automatisierte (horizontale) Skalierungsplattform für Datenbank-Cluster in der Cloud.</p>
+
+    <p>Virtuelle Maschinen, welche mittels eines Cloud-Frameworks angelegt wurden, können bei Last- bzw. Speicherspitzen von ADAPT dynamisch gestartet (oder gestoppt) und dem laufenden Datenbank-Cluster hinzugefügt (oder entzogen) werden.</p>
+    
+    <p>Momenten werden die Technologien <a target="_blank" href="http://cloudstack.apache.org">CloudStack</a> sowie <a target="_blank" href="https://www.mysql.de/products/cluster/">MySQL Cluster</a> unterstützt.</p>
+    
+    <p>ADAPT sollte idealerweise auf dem gleichen Server wie die CloudStack-Management-Instanz in Betrieb genommen wird.<br> Virtuelle Maschinen, welche als Nodes des Clusters fungieren sollen, müssen entsprechend eingereicht werden. <br>ADAPT muss per SSH eine Verbindung auf alle eingebundenen Cluster-VMs aufbauen können.</p>
+  
+    <p>In der _config.yaml (siehe <i>configs</i> Ordner) können diverse Einstellungen (wie bspw. die Speicherkapazität pro Node) vorgenommen werden. <br>Anschließend muss der ADAPT-Service allerdings manuell neugestartet werden.</p>
+
+    <br><br>
+  </div>
+
+  <!-- Current Bugs -->
+
+  <div class="row">
+    <h5>Fehlerbehebung</h5>
+    <hr>
+  </div>
+
+  <div class="row">
+    <p>Sehr selten tritt der Fall ein, dass die integrierte Simulator-Komponente die Test-Datenbank nicht löschen kann. <br> Eine entsprechende Fehlermeldung sollte in der <i>scaler.log</i> Datei enthalten sein.</p>
+
+    <p>Dieses Problem muss manuell gelöst werden, indem eine SSH-Verbindung auf alle SQL-Nodes aufgebaut wird und anschließend das "<i>/usr/local/mysql/data/tpcw</i>" Verzeichnis gelöscht wird.
+
+    <p>Bei allgemeinen Problemen kann der Cluster mittels des "Reset"-Buttons (oben rechts) jederzeit zurückgesetzt werden.</p>
+
+    <br><br>
+  </div>
+
+  <!-- Development -->
+
+  <div class="row">
+    <h5>Quellcode</h5>
+    <hr>
+  </div>
+  
+  <div class="row">
+    <p>Der Quellcode ist auf GitHub aufzufinden: <a target="_blank" href="https://github.com/sonnypgs/adapt">https://github.com/sonnypgs/adapt</a></p>
+
+    <br>
+  </div>
+
+</div>

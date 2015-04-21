@@ -1,0 +1,47 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// Page: CloudStack
+//
+///////////////////////////////////////////////////////////////////////////////
+
+.page-cloudstack {
+  
+  h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  button {
+    margin-right: 5px;
+  }
+
+  .vm-row {
+    position: relative;
+  }
+
+  .vm-id {
+    display: none;
+  }
+
+  .vm-operations {
+    text-align: center;
+  }
+  
+  .vm-state {
+    text-align: center;
+  }
+
+  .vm-state-running, .vm-state-starting {
+    background-color: #DFF0D8;
+    color: #5DB85C;
+  }
+
+  .vm-state-stopped, .vm-state-stopping, .vm-state-error, .vm-state-shutdowned {
+    background-color: #F2DEDE;
+    color: #D9534F;
+  }
+
+  .cloudstack-api {
+    font-size: 12px;
+  }
+}

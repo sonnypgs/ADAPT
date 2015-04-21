@@ -1,0 +1,87 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// Page: Configuration
+//
+///////////////////////////////////////////////////////////////////////////////
+
+.page-configuration {
+  
+  h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .default-body.dragging, .default-body.dragging * {
+    cursor: move !important
+  }
+
+  .dragged {
+    position: absolute;
+    top: 0;
+    opacity: .5;
+    z-index: 2000;
+  }
+
+  ol.vertical{
+    margin: 0 0 9px 0;
+    min-height: 50px;
+    padding-left: 0;
+    background: #eee;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    li {
+      cursor: move;
+      display: block;
+      margin: 5px;
+      padding: 5px;
+      border: 1px solid #CCC;
+      color: #286090;
+      background: #fff;
+
+      &.placeholder {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        border: none;
+        &:before {
+        position: absolute;
+        content: "";
+        width: 0;
+        height: 0;
+        margin-top: -5px;
+        left: -5px;
+        top: -4px;
+        border: 5px solid transparent;
+        border-left-color: red;
+        border-right: none; 
+        } 
+      }
+
+      &:hover {
+        color: blue;
+      } 
+    } 
+  }
+
+  .cluster-data-nodes {
+    ol {
+      padding: 20px;
+    }
+    .node-group {
+      // background-color: #aaa;
+    }
+
+    .add-new-node-group {
+      margin-bottom: 15px;
+    }
+
+    .delete-node-group {
+      color: red;
+      margin-left: 5px;
+      text-decoration: none;
+      cursor: pointer;
+      // padding: 3px;
+      float: right;
+    }
+  }
+}

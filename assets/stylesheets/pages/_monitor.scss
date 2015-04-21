@@ -1,0 +1,77 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// Page: Monitor
+//
+///////////////////////////////////////////////////////////////////////////////
+
+.page-monitor {
+  
+  .cluster-status {
+    text-align: right;
+    position: relative;
+    top: 30px;
+
+    span {
+      font-size: 14px;
+      
+      &.not_configured {
+        color: red;
+      }
+
+      &.configuring {
+        color: orange;
+      }
+
+      &.configured {
+        color: green;
+      }
+
+      &.starting {
+        color: orange;
+      }
+      
+      &.online {
+        color: green;
+      }
+
+      &.importing {
+        color: orange;
+      }
+
+      &.scaling_up {
+        color: orange;
+      }
+
+      &.scaling_down {
+        color: orange;
+      }
+
+      &.offline {
+        color: red;
+      }
+    }
+  }
+
+  .graph {
+    margin-top: 30px;
+  }
+
+  .chart-container {
+    position: relative;
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .chart {
+    float: left;
+  }
+
+  .y-axis {
+    float: left;
+    width: 80px;
+  }
+
+  .cluster-nodes {
+    margin-top: 30px;
+  }
+}

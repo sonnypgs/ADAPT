@@ -1,0 +1,108 @@
+<div id="page-simulation" class="page-simulation">
+  <div class="row">
+    <h4>Simulation</h4>
+    <hr>
+  </div>
+  
+  <div class="row database-buttons">
+    <button type="button" id="import-cluster-test-database" class="btn btn-default ladda-button" data-style="expand-left" data-spinner-color="#000">
+      <span class="ladda-label">Beispiel-Cluster-Datenbank (TPCW) importieren</span>
+    </button>
+    <button type="button" id="delete-cluster-test-database" class="btn btn-danger ladda-button" data-style="expand-left" data-spinner-color="#fff">
+      <span class="ladda-label">Beispiel-Cluster-Datenbank (TPCW) löschen</span>
+    </button>
+    <hr>
+  </div>
+
+  <div id="database-more-operations" class="row database-more-operations">
+    <button type="button" id="get-data-record-count" class="btn btn-primary ladda-button" data-style="expand-left" data-spinner-color="#fff">
+      <span class="ladda-label">Anzahl der Datensätze ermitteln</span>
+    </button>
+    <button type="button" id="insert-into-database-until-scaling" class="btn btn-primary ladda-button" data-style="expand-left" data-spinner-color="#fff">
+      <span class="ladda-label">Weitere Daten einspielen (triggert Skalierung)</span>
+    </button>
+    <button type="button" id="remove-from-database-until-scaling" class="btn btn-primary ladda-button" data-style="expand-left" data-spinner-color="#fff">
+      <span class="ladda-label">Datenbank leeren (triggert Skalierung)</span>
+    </button>
+    <hr>
+  </div>
+  
+  <div class="row">
+    <div class="form-group">
+      <label for="selected-query">
+        Datenbank-Abfrage
+      </label>
+      <select id="selected-query" class="form-control">
+        <option value="SELECT 1">
+          SELECT 1
+        </option>
+        <option value="SELECT C_ID FROM tpcw.CUSTOMER WHERE C_UNAME = 'INSEBAOGOG'">
+          SELECT C_ID FROM tpcw.CUSTOMER WHERE C_UNAME = 'INSEBAOGOG'</option>
+        <option value="SELECT * FROM tpcw.CUSTOMER JOIN tpcw.ADDRESS ON tpcw.CUSTOMER.C_ADDR_ID = tpcw.ADDRESS.ADDR_ID WHERE tpcw.CUSTOMER.C_UNAME = 'INSEBAOGOG' AND tpcw.ADDRESS.ADDR_ZIP ='JZuGwe^'">
+          SELECT * FROM tpcw.CUSTOMER JOIN tpcw.ADDRESS ON tpcw.CUSTOMER.C_ADDR_ID = tpcw.ADDRESS.ADDR_ID WHERE tpcw.CUSTOMER.C_UNAME = 'INSEBAOGOG' AND tpcw.ADDRESS.ADDR_ZIP ='JZuGwe^'</option>
+        <option value="SELECT * FROM tpcw.CUSTOMER LIMIT 100">
+          SELECT * FROM tpcw.CUSTOMER LIMIT 100
+        </option>
+        <option value="SELECT * FROM tpcw.CUSTOMER">
+          SELECT * FROM tpcw.CUSTOMER
+        </option>
+        <option value="---- Eigene ----">
+          ---- Eigene ----
+        </option>
+      </select>
+    </div>
+    
+    <div id="database-schema" class="database-schema form-group">
+      SCHEMA
+    </div>
+
+    <div id="custom-query" class="custom-query form-group">
+      <label for="simulation-query">
+        Eigene Abfrage
+      </label>
+      <input id="simulation-query" class="simulation-query form-control" type="text" class="form-control" placeholder="Beispiel: SELECT * FROM tpcw.customer">
+    </div>
+    
+    <div class="form-group">
+      <label for="thread-count">
+        Anzahl der parallelen Threads
+      </label>
+      <input id="thread-count" type="text" class="form-control" placeholder="10" value="10">
+    </div>
+    
+    <div class="form-group">
+      <label for="query-count">
+        Anzahl der Abfragen (pro Thread)
+      </label>
+      <input id="query-count" type="text" class="form-control" placeholder="30000" value="30000">
+    </div>
+  
+    <hr>
+  </div>
+  
+  <div class="row">
+    <div id="simulator-result-container" class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">Ergebnis</h3>
+      </div>
+      <div class="panel-body">
+        <div id="simulator-result">
+          Last-Simulation erfolgreich durchgeführt.
+        </div>
+        <div id="benchmark-result">
+          Benchmark: ~ <i><span></span></i> ms pro Abfrage
+        </div>
+      </div>
+    </div>
+
+    <div id="simulator-progress" class="progress">
+      <div class="progress-bar progress-bar-striped active progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+        0%
+      </div>
+    </div>
+
+    <button type="button" id="start-simulator" class="btn btn-primary ladda-button" data-style="expand-left">
+      <span class="ladda-label">Last-Simulation starten</span>
+    </button>
+  </div>
+</div>

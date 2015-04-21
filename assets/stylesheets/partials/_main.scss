@@ -1,0 +1,35 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// Partial: Main
+//
+///////////////////////////////////////////////////////////////////////////////
+
+.main {
+  // max-width: 980px !important;
+  background: #fff;
+  display: none;
+}
+
+.main-inner {
+  padding-top: 50px;
+  padding-right: 20px;
+  padding-bottom: 30px;
+  padding-left: 180px;
+}
+
+@media (min-width: 768px) {
+  .main-inner {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .main-inner {
+    padding-left: 20px;
+  }
+}
+
+.main .page-header {
+  margin-top: 0;
+}

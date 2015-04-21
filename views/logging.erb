@@ -1,0 +1,28 @@
+<div id="page-logging" class="page-logging">
+  <div class="row">
+    <h4>Logging</h4>
+    <hr>
+  </div>
+  
+  <div class="row">
+    <select>
+      <% @log_files.each do |file| %>
+        <option><%= file %></option>
+      <% end %>
+    </select>
+    
+    <br>
+    <br>
+    
+    <textarea class="form-control" readonly>
+      <!-- Will be filled with content of log files -->
+    </textarea>
+    <hr>
+  </div>
+  
+  <div class="row">
+    <button id="refresh" class="btn btn-primary">
+      Aktualisieren
+    </button>
+  </div>
+</div>

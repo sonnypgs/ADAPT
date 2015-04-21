@@ -1,0 +1,133 @@
+
+#------------------------------------------------------------------------------
+
+adapt:
+    authentication:
+        username:   <username>
+        password:   <password>
+
+#------------------------------------------------------------------------------
+
+cloudstack: 
+    url:        http://<host>:<port>/client/api
+    api_key:    <api_key>
+    secret_key: <secret_key>
+
+#------------------------------------------------------------------------------
+
+credentials:
+    management:
+        ssh:
+            user:       root
+            password:   password
+    sql:
+        ssh:
+            user:       root
+            password:   password
+        mysql:
+            user:       root
+            password:   password
+    data:
+        ssh:
+            user:       root
+            password:   password
+    loadbalancer:
+        ssh:
+            user:       root
+            password:   password
+
+#------------------------------------------------------------------------------
+
+configs:
+    cluster_nodes:          configs/cluster_nodes.yaml
+    local:
+        dir:                configs/
+        files:
+            management:     ndb_mgmd.cfg
+            sql:            mysqld.cfg
+            data:           ndbd.cfg
+            loadbalancer:   haproxy.cfg
+    template:
+        dir:                configs/templates/
+        files:
+            management:     ndb_mgmd.cfg
+            sql:            mysqld.cfg
+            data:           ndbd.cfg
+            loadbalancer:   haproxy.cfg        
+    remote:
+        paths:
+            management:     /usr/local/mysql/mysql-cluster/config.ini
+            sql:            /etc/my.cnf
+            data:           /etc/my.cnf
+            loadbalancer:   /etc/haproxy/haproxy.cfg
+
+#------------------------------------------------------------------------------
+
+logging:
+    dir:            logs/
+    files:
+        adapt:      adapt.log
+        benchmark:  benchmark.log
+        cluster:    cluster.log
+        monitor:    monitor.log
+        scaler:     scaler.log
+        simulator:  simulator.log
+
+#------------------------------------------------------------------------------
+
+settings:
+    cluster:
+    management:
+        data_dir:           /usr/local/mysql/mysql-cluster
+        nodeid:             1
+    sql:
+        port:               3306
+    data:
+        number_of_replica:  1
+        data_memory_size:   300M
+        index_memory_size:  40M
+        data_dir:           /usr/local/mysql/data
+    loadbalancer:
+
+#------------------------------------------------------------------------------
+
+monitor:
+    query:  SELECT 1
+
+#------------------------------------------------------------------------------
+
+simulator:
+    thread_count:   10
+    query_count:    30000
+    query:          SELECT 1
+    database:
+        name:       tpcw
+        mysql:      /usr/local/mysql/bin/mysql
+        file_path:  /var/tmp/tpcw-customer-address.sql
+        insert:
+            threads:    7
+            times:      12000
+
+#------------------------------------------------------------------------------
+
+scaling:
+    max_scale_up_attempts:          10
+    max_scale_down_attempts:        10
+    latency_trigger_factor:         1.5
+    fast_average_value_count:       30
+    slow_average_value_count:       120
+    scale_up_capacity_trigger:      0.9
+    scale_down_capacity_trigger:    1.1
+
+#------------------------------------------------------------------------------
+
+memorizer:
+    cluster_status_default:                 not_configured
+    cluster_latency_default:                -1ms
+    cluster_fast_average_latency_default:   -1ms
+    cluster_slow_average_latency_default:   -1ms
+    cluster_used_capacity_default:          -1MB
+    scale_up_attempts_default:              0
+    scale_down_attempts_default:            0
+
+#------------------------------------------------------------------------------

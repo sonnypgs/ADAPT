@@ -1,0 +1,35 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// Partial: Navbar
+//
+///////////////////////////////////////////////////////////////////////////////
+
+.navbar {
+    margin-bottom: 0;
+    -webkit-transition: all 0.8s ease-in-out;
+    -moz-transition: all 0.8s ease-in-out;
+    -o-transition: all 0.8s ease-in-out;
+    transition: all 0.8s ease-in-out;
+}
+
+.navbar-fixed-top {
+  border: 0;
+}
+
+.navbar-brand {
+    letter-spacing: 2px;
+}
+
+.navbar-brand.ready {
+    color: #f0f0f0;
+}
+
+.navbar-nav {
+	a {
+		font-size: 13px;
+	}
+}
+
+.navbar-text {
+    display: none;
+}

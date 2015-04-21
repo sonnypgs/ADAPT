@@ -1,0 +1,31 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// Partial: Misc
+//
+///////////////////////////////////////////////////////////////////////////////
+
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+  
+  h4 {
+    margin-bottom: 0;
+  }
+}
+
+.placeholder {
+  margin-bottom: 20px;
+
+  img {
+    display: inline-block;
+    border-radius: 50%;    
+  }
+}
+
+a, .btn {
+  margin-bottom: 0;
+  -webkit-transition: all 0.4s ease-in-out !important;
+  -moz-transition: all 0.4s ease-in-out !important;
+  -o-transition: all 0.4s ease-in-out !important;
+  transition: all 0.4s ease-in-out !important;  
+}

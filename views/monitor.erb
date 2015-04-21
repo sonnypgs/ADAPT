@@ -1,0 +1,45 @@
+<div id="page-monitor" class="page-monitor">
+  <div id="cluster-status" class="cluster-status">
+    <span>-</span>
+  </div>
+
+  <div role="tabpanel">
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="#latency" aria-controls="latency" role="tab" data-toggle="tab">Antwortzeit</a></li>
+      <li role="presentation"><a href="#capacity" aria-controls="capacity" role="tab" data-toggle="tab">Kapazität</a></li>
+      <li role="presentation"><a href="#cluster-overview" aria-controls="cluster-overview" role="tab" data-toggle="tab">Cluster</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane fade in active" id="latency">
+        <div id="cluster-latency-graph" class="graph">
+          <div id="chart_container" class="chart-container">
+            <div id="y_axis" class="y-axis"></div>
+            <div id="chart" class="chart"></div>
+          </div>
+        </div>       
+      </div>
+
+      <div role="tabpanel" class="tab-pane fade" id="capacity">
+        <div id="cluster-capacity-graph" class="graph">
+          <div id="chart_container" class="chart-container">
+            <div id="y_axis" class="y-axis"></div>
+            <div id="chart" class="chart"></div>
+          </div>
+        </div>    
+      </div>
+
+      <div role="tabpanel" class="tab-pane fade" id="cluster-overview">
+        <div id="cluster-nodes-container" class="cluster-nodes">
+        </div>
+        <hr>
+        <div id="memory-distribution-container" class="memory-distribution">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

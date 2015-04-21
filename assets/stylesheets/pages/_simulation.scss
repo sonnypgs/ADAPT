@@ -1,0 +1,44 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// Page: Simulation
+//
+///////////////////////////////////////////////////////////////////////////////
+
+.page-simulation {
+ 
+  h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  select {
+    // width: 90%;
+    // text-overflow: ellipsis;
+  }
+  
+  .database-buttons {
+    button {
+      display: none;
+    }
+  }
+
+  .database-more-operations {
+    display: none;
+  }
+  
+  .database-schema {
+    display: none;
+  }
+
+  .custom-query {
+    display: none;
+  }
+
+  .panel {
+    display: none;
+  }
+
+  .progress {
+    display: none;
+  }
+}

@@ -1,0 +1,44 @@
+<div id="page-cloudstack" class="page-cloudstack">
+  <div class="row">
+    <h4>CloudStack</h4>
+    <hr>
+  </div>
+  
+  <div class="row">    
+    <table class="cloudstack-api table table-bordered">
+      <tr>
+        <td><b>URL: </b></td>
+        <td><%= @url %></td>
+      </tr>
+      <tr>
+        <td><b>API KEY: </b></td>
+        <td><%= @api_key %></td>
+      </tr>
+      <tr>
+        <td><b>SECRET KEY: </b></td>
+        <td><%= @secret_key %></td>
+      </tr>
+    </table>
+
+    <table class="table table-bordered table-hover">
+      <% @vms.each do |vm| %>
+
+        <% vm_state = 'vm-state-' + vm['state'].downcase %>
+
+        <tr class="vm-row">
+          <td class="vm-id"><%= vm['id'] %></td>
+          <td class="vm-displayname"><%= vm['displayname'] %></td>
+          <td class="vm-name">(<%= vm['name'] %>)</td>
+          <td class="vm-ip"><%= vm['ip'] %></td>
+          <td class="vm-state <%= vm_state %>"><%= vm['state'] %></td>
+          <td class="vm-operations">
+            <button class="x-vm btn btn-default btn-sm" data-operation="start_vm">Start</button>
+            <button class="x-vm btn btn-default btn-sm" data-operation="stop_vm">Stop</button>
+            <button class="x-vm btn btn-default btn-sm" data-operation="reboot_vm">Reboot</button>
+          </td>
+        </tr>
+
+      <% end %>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,4 @@
+management:
+data:
+sql:
+loadbalancer:
