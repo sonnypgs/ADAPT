@@ -122,7 +122,7 @@ module ADAPT
 
       # Check if there are enough inactive nodes available
       inactive_nodes = $manager.get_inactive_cluster_data_nodes
-      needed_nodes_to_scale_up = $manager.get_node_count_per_nodegroup
+      needed_nodes_to_scale_up = get_needed_node_count_to_scale_up
 
       if inactive_nodes.count < needed_nodes_to_scale_up
         error = 'Not enough nodes are available for the scaling process.'
@@ -222,7 +222,7 @@ module ADAPT
 
       tables.each do |table|
         $logger.log("Distribute table '#{db_name}.#{table}'.", 'scaler')
-        command = "ALTER ONLINE TABLE #{db_name}.#{table} REORGANIZE PARTITION"
+        command = "ALTER TABLE #{db_name}.#{table} REORGANIZE PARTITION"
         client.query(command)
 
         $logger.log("Optimize table '#{db_name}.#{table}'.", 'scaler')
@@ -403,6 +403,14 @@ module ADAPT
       factor = CONFIG['scaling']['scale_down_capacity_trigger']
 
       cluster_capacity - (capacity_per_node * factor)
+    end
+
+    #---
+
+    def get_needed_node_count_to_scale_up
+      $manager.get_node_count_per_nodegroup
+      # TODO: calculate how many nodes are exactly needed 
+      #  (node_count_per_nodegroup * factor)
     end
 
     #---
